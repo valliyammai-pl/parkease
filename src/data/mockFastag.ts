@@ -1,0 +1,98 @@
+import { FastagAccount, FastagIssuer } from '../types';
+
+export const sampleFastagIssuers: { name: FastagIssuer; logoCode: string; tollFeePct: string }[] = [
+  { name: 'ICICI Bank', logoCode: 'ICICI', tollFeePct: '0% Convenience' },
+  { name: 'HDFC Bank', logoCode: 'HDFC', tollFeePct: '0% Convenience' },
+  { name: 'State Bank of India', logoCode: 'SBI', tollFeePct: '0% Convenience' },
+  { name: 'Airtel Payments Bank', logoCode: 'AIRTEL', tollFeePct: '0% Convenience' },
+  { name: 'Paytm Payments Bank', logoCode: 'PAYTM', tollFeePct: '0% Convenience' },
+];
+
+export const initialFastagAccounts: FastagAccount[] = [
+  {
+    id: 'ft-creta-9124',
+    vehicleReg: 'TN 07 BQ 9124',
+    vehicleClass: 'Class 4 (Car / Jeep / Van)',
+    tagId: '34161FA8209148209',
+    issuer: 'ICICI Bank',
+    balance: 180, // Low balance triggers notification/warning!
+    status: 'low_balance',
+    kycStatus: 'verified',
+    expiryDate: '2029-08-31',
+    autoRecharge: true,
+    thresholdAmount: 200,
+    autoRechargeAmount: 500,
+    transactions: [
+      {
+        id: 'tx-ft-01',
+        date: '10 Oct 2026, 04:15 PM',
+        amount: -80,
+        type: 'parking',
+        description: 'Chennai Central Smart Hub — 2 hrs Parking Auto-Debit',
+        reference: 'FASTAG-PRK-89214',
+        status: 'success',
+      },
+      {
+        id: 'tx-ft-02',
+        date: '08 Oct 2026, 08:30 AM',
+        amount: -125,
+        type: 'toll',
+        description: 'Chengalpattu Toll Plaza (NH-45 Outward Lane 4)',
+        reference: 'TOLL-NH45-77218',
+        status: 'success',
+      },
+      {
+        id: 'tx-ft-03',
+        date: '05 Oct 2026, 09:10 AM',
+        amount: 500,
+        type: 'recharge',
+        description: 'FASTag Instant Wallet Top-Up via UPI',
+        reference: 'UPI-REC-441092',
+        status: 'success',
+      },
+      {
+        id: 'tx-ft-04',
+        date: '28 Sep 2026, 11:20 AM',
+        amount: -160,
+        type: 'parking',
+        description: 'Bengaluru KSR TechTransit Parking 4 hrs Auto-Debit',
+        reference: 'FASTAG-PRK-31902',
+        status: 'success',
+      },
+    ],
+  },
+  {
+    id: 'ft-nexon-4589',
+    vehicleReg: 'KA 01 MJ 4589',
+    vehicleClass: 'Class 4 (Car / Jeep / Van - EV)',
+    tagId: '65281FA9912048174',
+    issuer: 'HDFC Bank',
+    balance: 850,
+    status: 'active',
+    kycStatus: 'verified',
+    expiryDate: '2030-03-31',
+    autoRecharge: false,
+    thresholdAmount: 300,
+    autoRechargeAmount: 1000,
+    transactions: [
+      {
+        id: 'tx-ft-05',
+        date: '11 Oct 2026, 02:40 PM',
+        amount: -120,
+        type: 'parking',
+        description: 'New Delhi Capital Express Parking 2 hrs Auto-Debit',
+        reference: 'FASTAG-PRK-11029',
+        status: 'success',
+      },
+      {
+        id: 'tx-ft-06',
+        date: '01 Oct 2026, 10:00 AM',
+        amount: 1000,
+        type: 'recharge',
+        description: 'Monthly FASTag Auto-Debit Reload via NetBanking',
+        reference: 'NB-REL-71289',
+        status: 'success',
+      },
+    ],
+  },
+];
